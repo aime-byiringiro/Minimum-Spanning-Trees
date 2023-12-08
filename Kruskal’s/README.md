@@ -3,6 +3,8 @@
 
 - It assumes that the input is connected and represented by adjacency lists. c
 
+# Running time: O(E lg V)
+
 # Pseudocode
  - MST-KRUSKAL(G,w)
  1.     A = ∅ 
