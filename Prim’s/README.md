@@ -3,7 +3,7 @@
 
 - It assumes that the input is a connected represented by adjaceny list.
 
-
+# Running time: O(V lg V + E lg V) = O(E lg V)
 # Pseudocode
 ter- MIST-PRIMT(G,W,r)
 1.      for each vertext u ∈ G.V
