@@ -1,12 +1,12 @@
 # Prim Algorithm 
-- In Prim's algorithm, set A always form a single tree. A tree starts from an arbitrary root vertex r and grows until it spans all the vertices in V graph. 
+- In Prim's algorithm, set A always forms a single tree. A tree starts from an arbitrary root vertex r and grows until it spans all the vertices in the V graph. 
 
-- It assumes that the input is a connected represented by adjaceny list.
+- It assumes that the input is a connected represented by an adjacency list.
 
 
 # Pseudocode
 ter- MIST-PRIMT(G,W,r)
-1.      for each vertext u ∈ G.V
+1.      for each vertex u ∈ G.V
 2.          u.key = ∞
 3.          u.∏ = NIL
 4.      r.key = 0
@@ -23,3 +23,6 @@ ter- MIST-PRIMT(G,W,r)
 
 
 # Image
+
+![Screenshot 2023-12-08 at 3 53 31 PM](https://github.com/aime-byiringiro/Minimum-Spanning-Trees/assets/85495866/d6313455-cd6a-439b-ba40-e26d7dc565e3)
+
