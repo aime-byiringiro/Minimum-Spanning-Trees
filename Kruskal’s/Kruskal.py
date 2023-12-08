@@ -1,81 +1,55 @@
-# Finding the minimum spanning tree of an undirected weighteed graph using Krustal's algorithm
-# Some of these codes were developed in reference to geeksforgeeks
-
-
-class Graph:
+class Kruskal:
     def __init__(self, vertices):
         self.V = vertices
-        self.G = []
+        self.graph = []
 
-        # Adding an edge to a graph
+    def add_edge(self, u, v, w):
+        self.graph.append((u, v, w))
 
-    def addEdge(self, u, v, w):
-        self.G.append([u, v, w])
+    def kruskal_algorithm(self):
+        parent = [i for i in range(self.V)]
+        rank = [0] * self.V
+        result = []
 
-    # Finding the parent of a a vertex at i
-    def find(self, parent, i):
-        if parent[i] != i:
-            parent[i] = self.find(parent, parent[i])
-        return parent[i]
+        def find(i):
+            if parent[i] != i:
+                parent[i] = find(parent[i])
+            return parent[i]
 
-    def union(self, parent, rank, x, y):
-        if rank[x] < rank[y]:
-            parent[x] = y
-        elif rank[x] > rank[y]:
-            parent[y] = x
-        else:
-            parent[y] = x
-            rank[x] += 1
+        def union(i, j):
+            root_i = find(i)
+            root_j = find(j)
 
-    """
-    End of Graph creation 
-    """
+            if root_i != root_j:
+                if rank[root_i] < rank[root_j]:
+                    parent[root_i] = root_j
+                elif rank[root_i] > rank[root_j]:
+                    parent[root_j] = root_i
+                else:
+                    parent[root_j] = root_i
+                    rank[root_i] += 1
 
-    """
-    Kruskal's algo 
-    """
+        self.graph = sorted(self.graph, key=lambda item: item[2])
 
-    def Krustal_algorithm(self):
-        result = []  # contain the results from spanning
-        i = 0
-        e = 0
-        # sort all the edges according to thier weights in a non-decreasing order.
-        # This is a condition for all greedy algorithms
-        self.graph = sorted(self.G, key=lambda item: item[2])
-        parent = []
-        rank = []
+        for edge in self.graph:
+            u, v, w = edge
+            root_u = find(u)
+            root_v = find(v)
 
-        for node in range(self.V):
-            parent.append(node)
-            rank.append(0)
-
-        while e < self.V - 1:
-            u, v, w = self.G[i]
-
-            i = i + 1
-            x = self.find(parent, u)
-            y = self.find(parent, v)
-
-            if x != y:
-                e = e + 1
+            if root_u != root_v:
                 result.append((u, v, w))
-                self.union(parent, rank, x, y)
+                union(root_u, root_v)
 
-        minimum_cost = 0
-        print("Edges in teh constructed MST")
-        for u, v, weight in result:
-            minimum_cost += weight
-            print("%d -- %d == %d" % (u, v, weight))
-        print("Minimu Spanning Tree", minimum_cost)
+        return result
 
 
-if __name__ == "__main__":
-    g = Graph(4)
+# Example usage
+g = Kruskal(4)
+g.add_edge(0, 1, 10)
+g.add_edge(0, 2, 6)
+g.add_edge(0, 3, 5)
+g.add_edge(1, 3, 15)
+g.add_edge(2, 3, 4)
 
-    g.addEdge(0, 1, 10)
-    g.addEdge(0, 2, 6)
-    g.addEdge(0, 3, 5)
-    g.addEdge(1, 3, 15)
-    g.addEdge(2, 3, 4)
-
-    g.Krustal_algorithm()
+result = g.kruskal_algorithm()
+print(result)
