@@ -1,7 +1,7 @@
 # Krustal Algorithm
 - In Krustal's algorithm, set A is a forest whose vertices are all those of the given graph. The safe edge added to A is always the lowest-weight edge in the graph that connects two distinct components. 
 
-- It assumes that the input is connected and represented by adjacency lists. c
+- It assumes that the input is connected and represented by adjacency lists.
 
 # Running time: O(E lg V)
 
