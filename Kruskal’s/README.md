@@ -17,6 +17,8 @@
  8.         A = A ∪ {(u,v)}
  9.         UNION(u,v)
  10.     return A
+
+# Image
 ![Screenshot 2023-12-08 at 2 49 48 PM](https://github.com/aime-byiringiro/Minimum-Spanning-Trees/assets/85495866/703d4863-463a-4e03-952f-a78ecbfa4a8a)
 
 
