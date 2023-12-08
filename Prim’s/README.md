@@ -7,18 +7,19 @@
 # Pseudocode
 ter- MIST-PRIMT(G,W,r)
 1.      for each vertext u ∈ G.V
-2.       u.∏ = NIL
-3.      r.key = 0
-4. Q = ⦰ 
-5. for each vertex u ∈  G.V
-6.  INSERT (Q,u)
-7. while Q ≉ ⦰
-8.  u = EXTRACT-MIN(Q) // add u to the tree
-9.  for each vertex v in G.Adj[u] // update u's non-tree neighbors 
-10.     if v ∈  Q and w(u,v) < v.key
-11.         v.∏ = u
-12.         v.key = w(u,v)
-13.         DECREASE-KEY(Q,v,w(u,v))
+2.          u.key = ∞
+3.          u.∏ = NIL
+4.      r.key = 0
+5.      Q = ⦰ 
+6.      for each vertex u ∈  G.V
+7.          INSERT (Q,u)
+8.      while Q ≉ ⦰
+9.          u = EXTRACT-MIN(Q) // add u to the tree
+10.         for each vertex v in G.Adj[u] // update u's non-tree neighbors 
+11.             if v ∈  Q and w(u,v) < v.key
+12.                 v.∏ = u
+13.                 v.key = w(u,v)
+14.                 DECREASE-KEY(Q,v,w(u,v))
 
 
 # Image
