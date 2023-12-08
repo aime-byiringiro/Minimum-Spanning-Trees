@@ -4,7 +4,7 @@
 - It assumes that the input is connected and represented by adjacency lists. c
 
 # Pseudocode
- -      MST-KRUSKAL(G,w)
+ - MST-KRUSKAL(G,w)
  1.     A = ∅ 
  2.     for each Evertex v ∊ G.V
  3.       MAKE-SET(v)
